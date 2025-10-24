@@ -10,18 +10,18 @@ Scrapes job offers from a Handshake search URL into a CSV. If your school/organi
 
 ## Extracted columns
 
-* Company
-*     Name
-*     Sector
-*     Headcount
-* Job
-*     Title
-*     PostedAt
-*     Duration
-*     Start
-*     Location
-*     Description
-*     Link
+* **Company**
+    * Name
+    * Sector
+    * Headcount
+* **Job**
+    * Title
+    * PostedAt
+    * Duration
+    * Start
+    * Location
+    * Description
+    * Link
 
 ## Requirements
 
