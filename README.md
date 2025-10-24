@@ -4,16 +4,24 @@ Scrapes job offers from a Handshake search URL into a CSV. If your school/organi
 
 ## Features
 
-* Paginates through a Handshake search (requires `page=1` in the URL).
+* Paginates through a Handshake search.
 * Visits each job page and extracts key fields.
-* Prints clean one-line `[DATA]` logs (trimmed to terminal width).
 * Writes a tidy CSV (`handshake_jobs.csv`) ready for analysis.
 
 ## Extracted columns
 
-* Company Name, Company Sector, Company Headcount
-* Job Title, Job PostedAt, Job Duration, Job Start, Job Location
-* Job Description, Job Link
+* Company
+*     Name
+*     Sector
+*     Headcount
+* Job
+*     Title
+*     PostedAt
+*     Duration
+*     Start
+*     Location
+*     Description
+*     Link
 
 ## Requirements
 
