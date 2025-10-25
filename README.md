@@ -63,8 +63,10 @@ Scrapes job offers from a Handshake search URL into a CSV. If your school/organi
 * `[SSO]` … login hints
 * `[PAGE]` … pagination progress
 * `[JOB i/N]` … job pages being scraped
-* `[DATA]` … one-line, width-trimmed records per field
-* `[OK] Wrote …/handshake_jobs.csv` on success
+* `[SLEEP]` … time throttling
+* `[DATA]` … one-line records per field
+* `[WARN]` … warnings
+* `[OK]` … on success
 
 ## Login & Session Notes
 
@@ -75,20 +77,11 @@ The script uses a persistent Chrome profile at:
 
 First run may prompt you to log in. Subsequent runs reuse the session.
 
-**Common fix:**
-
-If you see `SessionNotCreatedException: ... user data directory is already in use`, it means a previous Chrome session still owns the profile.
-
-1.  Close any leftover Chrome/driver windows or
-2.  Delete the profile folder `~/.handshake_chrome_profile` and re-run or
-3.  Run one instance at a time.
-
-## Tips & Options
+## Tips
 
 * **Headless mode**: By default, Chrome is not headless so you can log in. After you’re logged in once, you can set `headless=True` in `setup_driver()` if you prefer (advanced users).
 * **Be gentle**: Increase `-t` if you need more time between requests.
 * **Pagination**: The script updates the `page` param internally (must start with `page=1` in your URL).
-* **CSV columns**: See “Extracted columns” above; perfect for pandas or spreadsheets.
 
 ## Example Usage
 
@@ -99,7 +92,7 @@ python -m venv .venv && source .venv/bin/activate
 # 2) Install deps
 pip install pandas selenium webdriver-manager
 
-# 3) Run (first time you'll log in)
+# 3) Run
 python3 handshake_scraper.py -u "[https://hec.joinhandshake.fr/job-search/184347?query=AI&per_page=25&sort=relevance&page=1](https://hec.joinhandshake.fr/job-search/184347?query=AI&per_page=25&sort=relevance&page=1)" -p 1 -t 12
 
 # 4) Open results
@@ -113,6 +106,10 @@ start handshake_jobs.csv # Windows
 * **No CSV written**: If no jobs are found or pages error out, you’ll see [WARN] No rows scraped. Confirm your URL is valid and includes page=1, you’re logged in, and the page has listings.
 * **Blocked/Rate-limited**: Increase `-t` or try fewer pages.
 * **Layout changes**: The script uses XPath selectors; if Handshake changes markup, some fields may come back empty. Update the XPaths in the constants section.
+* **Persisting Chrome session**: If you see `SessionNotCreatedException: ... user data directory is already in use`, it means a previous Chrome session still owns the profile.
+1.  Close any leftover Chrome/driver windows or
+2.  Delete the profile folder `~/.handshake_chrome_profile` and re-run or
+3.  Run one instance at a time.
 
 ## Safety & Respect
 
