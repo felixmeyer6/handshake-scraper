@@ -77,30 +77,6 @@ The script uses a persistent Chrome profile at:
 
 First run may prompt you to log in. Subsequent runs reuse the session.
 
-## Tips
-
-* **Headless mode**: By default, Chrome is not headless so you can log in. After you’re logged in once, you can set `headless=True` in `setup_driver()` if you prefer (advanced users).
-* **Be gentle**: Increase `-t` if you need more time between requests.
-* **Pagination**: The script updates the `page` param internally (must start with `page=1` in your URL).
-
-## Example Usage
-
-```bash
-# 1) Activate env (optional)
-python -m venv .venv && source .venv/bin/activate
-
-# 2) Install deps
-pip install pandas selenium webdriver-manager
-
-# 3) Run
-python3 handshake_scraper.py -u "https://yourorg.joinhandshake.fr/job-search/123456?query=yourdreamjob&per_page=25&page=1" -p 10 -t 50
-
-# 4) Open results
-open handshake_jobs.csv  # macOS
-# or:
-start handshake_jobs.csv # Windows
-```
-
 ## Troubleshooting
 
 * **No CSV written**: If no jobs are found or pages error out, you’ll see [WARN] No rows scraped. Confirm your URL is valid and includes page=1, you’re logged in, and the page has listings.
