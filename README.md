@@ -48,7 +48,7 @@ Scrapes job offers from a Handshake search URL into a CSV. If your school/organi
 4.  Run the scraper with a Handshake search URL that contains `page=1`:
     ```bash
     python3 handshake_scraper.py \
-      -u "[https://hec.joinhandshake.fr/job-search/184347?query=AI&per_page=25&jobType=10&jobType=18&jobType=22&sort=relevance&page=1](https://hec.joinhandshake.fr/job-search/184347?query=AI&per_page=25&jobType=10&jobType=18&jobType=22&sort=relevance&page=1)" \
+      -u "[https://yourorg.joinhandshake.fr/job-search/123456?query=yourdreamjob&per_page=25&page=1](https://yourorg.joinhandshake.fr/job-search/123456?query=yourdreamjob&per_page=25&page=1)" \
       -p 2 \
       -t 10
     ```
@@ -93,7 +93,7 @@ python -m venv .venv && source .venv/bin/activate
 pip install pandas selenium webdriver-manager
 
 # 3) Run
-python3 handshake_scraper.py -u "[https://hec.joinhandshake.fr/job-search/184347?query=AI&per_page=25&sort=relevance&page=1](https://hec.joinhandshake.fr/job-search/184347?query=AI&per_page=25&sort=relevance&page=1)" -p 1 -t 12
+python3 handshake_scraper.py -u "[https://yourorg.joinhandshake.fr/job-search/123456?query=yourdreamjob&per_page=25&page=1](https://yourorg.joinhandshake.fr/job-search/123456?query=yourdreamjob&per_page=25&page=1)" -p 1 -t 12
 
 # 4) Open results
 open handshake_jobs.csv  # macOS
